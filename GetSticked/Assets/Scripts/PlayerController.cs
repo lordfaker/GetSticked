@@ -19,8 +19,23 @@ public class PlayerController : MonoBehaviour {
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
+		if (moveHorizontal == 0.0F) {
+			rb.velocity = Vector3.zero;
+			rb.angularVelocity = Vector3.zero;
+		} else {
 
-        rb.AddForce(movement* speed);
+			if (rb.velocity.x == 0.0F) {
+				Vector3 movement = Vector3.zero;
+				if (moveHorizontal > 0.0)
+					movement = new Vector3 (speed, 0.0f, 0.0f);
+				else
+					movement = new Vector3 (speed * -1F, 0f, 0f);
+
+				rb.AddForce (movement);
+			}
+			
+		}
+		
+        
     }
 }
