@@ -14,10 +14,12 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
     void FixedUpdate()
     {
+		float moveHorizontal = Input.GetAxis ("Horizontal");
+
 		if (moveHorizontal == 0.0F) {
 			rb.velocity = Vector3.zero;
 			rb.angularVelocity = Vector3.zero;
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour {
 
 				rb.AddForce (movement);
 			}
-			
+
 		}
     }
 }
