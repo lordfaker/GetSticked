@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
         rb = GetComponent<Rigidbody>();
 	}
 	
@@ -17,8 +18,12 @@ public class PlayerController : MonoBehaviour {
 	}
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
+            
+            float moveHorizontal = Input.GetAxisRaw("Horizontal");
 
+            Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
+
+<<<<<<< HEAD
 		if (moveHorizontal == 0.0F) {
 			rb.velocity = Vector3.zero;
 			rb.angularVelocity = Vector3.zero;
@@ -37,5 +42,10 @@ public class PlayerController : MonoBehaviour {
 		}
 		
         
+=======
+            rb.AddForce(movement * speed);
+        
+
+>>>>>>> 3ccdca9d5d2325fe9ec44da05cb4c274d580f1e9
     }
 }
