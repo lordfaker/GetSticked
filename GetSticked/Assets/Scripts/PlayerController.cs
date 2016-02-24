@@ -5,11 +5,14 @@ public class PlayerController : MonoBehaviour {
 
     public float speed = 3.0f;
     private Rigidbody rb;
+    private Transform aimTransform;
 
     // Use this for initialization
     void Start () {
 
         rb = GetComponent<Rigidbody>();
+        aimTransform = GetComponentInChildren<Transform>();
+
 	}
 	
 	// Update is called once per frame
@@ -18,7 +21,8 @@ public class PlayerController : MonoBehaviour {
 	}
     void FixedUpdate()
     {
-		float moveHorizontal = Input.GetAxis ("Horizontal");
+		float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
 		if (moveHorizontal == 0.0F) {
 			rb.velocity = Vector3.zero;
@@ -36,5 +40,9 @@ public class PlayerController : MonoBehaviour {
 			}
 
 		}
+        
+       
+        
+
     }
 }
